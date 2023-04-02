@@ -24,9 +24,9 @@ const AgeForm = () => {
 	return (
 		<Formik {...formProps}>
 			<div className="ageForm">
-				<Input name="day" label="DAY" onChange={handleChange} />
-				<Input name="month" label="MONTH" onChange={handleChange} />
-				<Input name="year" label="YEAR" onChange={handleChange} />
+				<Input name="day" label="DAY" onChange={handleChange} placeholder="DD" />
+				<Input name="month" label="MONTH" onChange={handleChange} placeholder="MM" />
+				<Input name="year" label="YEAR" onChange={handleChange} placeholder="YY" />
 			</div>
 		</Formik>
 	);
