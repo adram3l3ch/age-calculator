@@ -13,6 +13,7 @@ const AgeForm = () => {
 		validationSchema,
 		enableReinitialize: true,
 		validateOnChange: true,
+		validateOnMount: true,
 	};
 
 	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
