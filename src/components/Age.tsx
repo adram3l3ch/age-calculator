@@ -1,10 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context";
 import validationSchema from "../validationSchema";
+import AlphaNumeric from "./AlphaNumeric";
+
+type Age = {
+	days: null | number;
+	months: null | number;
+	years: null | number;
+};
 
 const Age = () => {
 	const { state } = useContext(AppContext)!;
-	const [age, setAge] = useState({ days: -1, months: -1, years: -1 });
+	const [age, setAge] = useState<Age>({ days: null, months: null, years: null });
 
 	const getAge = async () => {
 		try {
@@ -26,7 +33,7 @@ const Age = () => {
 			}
 			setAge({ days, months, years });
 		} catch (error) {
-			setAge({ days: -1, months: -1, years: -1 });
+			setAge({ days: null, months: null, years: null });
 		}
 	};
 
@@ -36,15 +43,18 @@ const Age = () => {
 
 	return (
 		<div className="age">
-			<p>
-				<span>{age.years >= 0 ? age.years : "--"}</span> years
-			</p>
-			<p>
-				<span>{age.months >= 0 ? age.months : "--"}</span> months
-			</p>
-			<p>
-				<span>{age.days >= 0 ? age.days : "--"}</span> days
-			</p>
+			<div className="age-grp">
+				<AlphaNumeric value={typeof age.years === "number" ? age.years : "--"} />
+				<p className="title">years</p>
+			</div>
+			<div className="age-grp">
+				<AlphaNumeric value={typeof age.months === "number" ? age.months : "--"} />
+				<p className="title">months</p>
+			</div>
+			<div className="age-grp">
+				<AlphaNumeric value={typeof age.days === "number" ? age.days : "--"} />
+				<p className="title">days</p>
+			</div>
 		</div>
 	);
 };

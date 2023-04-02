@@ -14,6 +14,10 @@ export default yup.object().shape({
 	year: yup
 		.number()
 		.min(1000, "Must be a valid year")
-		.max(new Date().getFullYear(), "Must be in the past")
-		.required("This field is required"),
+		.required("This field is required")
+		.test("future-date", "Date must be in the past", function (value) {
+			const now = new Date();
+			const date = new Date(value, this.parent.month - 1, this.parent.day);
+			return date < now;
+		}),
 });
