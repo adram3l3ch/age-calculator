@@ -5,7 +5,7 @@ const Divider = () => {
 		<div className="divider">
 			<div className="line" />
 			<div className="arrow">
-				<img src="/icon-arrow.svg" />
+				<img src="/icon-arrow.svg" alt="divider" />
 			</div>
 		</div>
 	);

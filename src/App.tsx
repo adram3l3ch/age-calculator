@@ -5,13 +5,13 @@ import Divider from "./components/Divider";
 
 function App() {
 	return (
-		<div className="container">
-			<div className="card">
+		<main className="container">
+			<section className="card">
 				<AgeForm />
 				<Divider />
 				<Age />
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 }
 
